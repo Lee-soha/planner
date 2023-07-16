@@ -2,7 +2,7 @@ import time
 from datetime import datetime
 from fastapi import HTTPException, status
 from jose import jwt, JWTError
-from database import Settings
+from database.connection import Settings
 
 settings = Settings()
 

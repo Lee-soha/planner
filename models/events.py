@@ -42,3 +42,5 @@ class EventUpdata(BaseModel):
                 "location": "Google Meet"
             }
         }
+class Event(Document):
+    creator: Optional[str]

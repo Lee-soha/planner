@@ -4,7 +4,7 @@ from beanie import Document, Link, Document, PydanticObjectId
 from models.events import Event
 
 class User(Document, BaseModel):
-    id: Optional[PydanticObjectId]
+    _id: Optional[PydanticObjectId]
     email: EmailStr
     password: str
     events: Optional[List[Link[Event]]]
@@ -20,14 +20,18 @@ class User(Document, BaseModel):
                 "events": [],
             }
         }
-class UserSignIn(BaseModel):
-    email: EmailStr
-    password: str
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str
 
-    class Config:
-        json_schema_extra = {
-            "example": {
-                "email": "fastapi@packt.com",
-                "password": "strong!!!",
-            }
-        }
+# class UserSignIn(BaseModel):
+#     email: EmailStr
+#     password: str
+
+#     class Config:
+#         json_schema_extra = {
+#             "example": {
+#                 "email": "fastapi@packt.com",
+#                 "password": "strong!!!",
+#             }
+#         }
