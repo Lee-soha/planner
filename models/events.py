@@ -1,15 +1,16 @@
 from pydantic import BaseModel
-from beanie import Document, PydanticObjectId
+from beanie import Document, PydanticObjectId, DocumentSettings
 from typing import List, Optional
 
 class Event(Document):
     _id: Optional[PydanticObjectId]
+    creator: Optional[str]
     title: str
     image: str
     description: str
     tags: List[str]
     location: str
-
+    
     class Config:
         json_schema_extra = {
             "example": {
@@ -42,5 +43,3 @@ class EventUpdata(BaseModel):
                 "location": "Google Meet"
             }
         }
-class Event(Document):
-    creator: Optional[str]
