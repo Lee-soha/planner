@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from beanie import Document, PydanticObjectId, DocumentSettings
+from beanie import Document, PydanticObjectId
 from typing import List, Optional
 
 class Event(Document):
